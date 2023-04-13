@@ -1,0 +1,6 @@
+#ifndef CONSOLECHESS_INCLUDES_H
+#define CONSOLECHESS_INCLUDES_H
+
+#include <iostream>
+
+#endif //CONSOLECHESS_INCLUDES_H

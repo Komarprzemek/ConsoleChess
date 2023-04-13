@@ -1,26 +1,41 @@
-#include <iostream>
+#include "includes.h"
+#include "game.h"
+#include "interface.h"
+
+
+Game* thisGame = nullptr;
 
 void clearScreen();
 void printStartScreen();
 
 void printMenu();
 
+void newGame();
+
 int main() {
     bool isGameRun = true;
     clearScreen();
     printStartScreen();
-    std::string userInput {""};
+    std::string userInput;
 
     while(isGameRun){
         printMenu();
         std::cout << "Type here: ";
         std::cin >> userInput;
 
+        if(userInput.length() !=1){
+            std::cout << "Invalid input \n";
+            continue;
+        }
+
         switch (userInput[0]) {
             case 'N':
             case 'n':
             {
-                std::cout << "User picked N\n";
+                newGame();
+                clearScreen();
+                printStartBoard(*thisGame);
+
                 break;
             }
             case 'M':
@@ -36,11 +51,20 @@ int main() {
                 isGameRun = false;
                 break;
             }
+            default:
+                std::cout << "Ths option do not exist\n";
 
         }
     }
 
+    delete thisGame;
     return 0;
+}
+
+void newGame() {
+    if(thisGame != nullptr)
+        delete thisGame;
+    thisGame = new Game();
 }
 
 void printMenu() {
