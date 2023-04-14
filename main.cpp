@@ -34,7 +34,7 @@ int main() {
             {
                 newGame();
                 clearScreen();
-                printStartBoard(*thisGame);
+                printBoard(*thisGame);
 
                 break;
             }

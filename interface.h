@@ -4,6 +4,7 @@
 #include "includes.h"
 #include "game.h"
 
-void printStartBoard(Game & game);
+void printBoard(Game & game);
+void printLine(int boardLine, int boardColor1, int boardColor2, Game &game);
 
 #endif //CONSOLECHESS_INTERFACE_H
